@@ -2,7 +2,7 @@
 
 A customizable data catalog for users of the EDI Data Repository
 
-[Live demo](https://EDIorg.github.io/ezCatalog/public/demo.html)
+[Live demo](https://samrblackburn.github.io/MCMezCatalog/public/demo.html)
 
 _ezCatalog is inspired by the [PASTA-JavaScript-Search-Client](https://github.com/BLE-LTER/PASTA-JavaScript-Search-Client) developed by Tim Whiteaker for the Long-Term Ecological Research Network (LTER)._
 
@@ -31,12 +31,12 @@ Researchers and organizations publishing data in the [EDI Repository](https://po
    ```
 
 6. Review the additional configuration options in the `PASTA_CONFIG` block near the top of `/public/pasta.js` (for example `showBanner`, `hideMapView`, `facetVisibility`, `showAbstracts`, and `abstractLimit`).
-7. Use GitHub **Actions** to build your catalog with the [build_catalog](https://github.com/EDIorg/ezCatalog/blob/master/.github/workflows/build_catalog.yml) workflow. Go to **Actions** and under **Workflows** select **Build catalog**, select the branch to run it on (this should be your custom branch), then **Run workflow**. Wait for the workflow to complete, then click the **Live demo** page to see your catalog (it may take a few minutes to update). Subsequent pushes to your fork will automatically rerun the `build_catalog` workflow.  
+7. Use GitHub **Actions** to build your catalog with the [build_catalog](https://github.com/samrblackburn/MCMezCatalog/blob/master/.github/workflows/build_catalog.yml) workflow. Go to **Actions** and under **Workflows** select **Build catalog**, select the branch to run it on (this should be your custom branch), then **Run workflow**. Wait for the workflow to complete, then click the **Live demo** page to see your catalog (it may take a few minutes to update). Subsequent pushes to your fork will automatically rerun the `build_catalog` workflow.  
 8. Copy the HTML snippet below and paste it into the body of your webpage.
 
 ```
 
-<iframe loading="lazy" src="https://EDIorg.github.io/ezCatalog/public/demo.html" scrolling="no" allow="fullscreen" width="100%" height="2700px"></iframe>
+<iframe loading="lazy" src="https://samrblackburn.github.io/MCMezCatalog/public/demo.html" scrolling="no" allow="fullscreen" width="100%" height="2700px"></iframe>
 
 ```
 
