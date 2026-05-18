@@ -38,7 +38,7 @@ const PASTA_CONFIG = {
   // User configurable options --------------------------------------------------------------------------------
   "filter": '&fq=scope:knb-lter-mcm', // Filter results on a unique keyword of a research group
   "brandingText": "MCM-LTER Data Catalog",
-  "logoAltText": "EDI Logo", //
+  "logoAltText": "MCM Logo, a white outline of Antarctica with the text MCM LTER est. 1993 overlaid.", //
   "showAbstracts": true, // true if we should show abstracts in search results
   "abstractLimit": 750, // Limit the number of characters in the abstract
   "showUserStoriesLink": true, // If false, do not display the user stories link for datasets
