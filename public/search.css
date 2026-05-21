@@ -686,9 +686,9 @@ body {
   box-sizing: border-box;
 }
 
-body.no-banner {
+/* body.no-banner {
   margin-top: 24px !important;
-}
+} */
 
 body.no-banner .banner-bar {
   display: none !important;
