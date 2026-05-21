@@ -27,6 +27,18 @@
     <aside class="sidebar" id="search-tab">
       <h2 class="filter-title">Filter</h2>
       <form id="dataSearchForm" name="dataSearchForm">
+        <!-- Plain text search bar -->
+        <div id="search-bar-block">
+          <div class="search-bar-inner">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input
+              type="search"
+              id="main-search-input"
+              placeholder="Search datasets..."
+              aria-label="Search all datasets"
+            />
+          </div>
+        </div>
         <!-- Only new faceted search fields remain -->
         <div id="active-filters"></div>
         <div id="advancedInputs" style="margin-top: 10px">

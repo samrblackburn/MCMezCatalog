@@ -689,6 +689,45 @@ function filterDocsByCommonNames(docs, selectedCommonNames) {
   });
 }
 
+// --- Free-text search bar filtering ---
+function getSearchText() {
+  var input = document.getElementById('main-search-input');
+  return input ? input.value.trim().toLowerCase() : '';
+}
+
+function filterDocsBySearchText(docs, searchText) {
+  if (!searchText) return docs;
+  return docs.filter(function (doc) {
+    // Title
+    var titleNode = doc.getElementsByTagName('title')[0];
+    if (titleNode && titleNode.textContent.toLowerCase().includes(searchText)) return true;
+    // Abstract
+    var abstractNode = doc.getElementsByTagName('abstract')[0];
+    if (abstractNode && abstractNode.textContent.toLowerCase().includes(searchText)) return true;
+    // Personnel / author names
+    var personNodes = doc.getElementsByTagName('person');
+    for (var i = 0; i < personNodes.length; i++) {
+      if (personNodes[i].textContent.toLowerCase().includes(searchText)) return true;
+    }
+    // Keywords
+    var keywordNodes = doc.getElementsByTagName('keyword');
+    for (var i = 0; i < keywordNodes.length; i++) {
+      if (keywordNodes[i].textContent.toLowerCase().includes(searchText)) return true;
+    }
+    // Scientific names
+    var taxonNodes = doc.getElementsByTagName('taxonRankValue');
+    for (var i = 0; i < taxonNodes.length; i++) {
+      if (taxonNodes[i].textContent.toLowerCase().includes(searchText)) return true;
+    }
+    // Common names
+    var commonNameNodes = doc.getElementsByTagName('commonName');
+    for (var i = 0; i < commonNameNodes.length; i++) {
+      if (commonNameNodes[i].textContent.toLowerCase().includes(searchText)) return true;
+    }
+    return false;
+  });
+}
+
 // Simple HTML-escaping helper to safely render text inside HTML markup
 function escapeHtml(str) {
   return String(str)
@@ -801,7 +840,9 @@ function processFacetChange() {
   var selectedLocations = getSelectedLocations();
   var selectedTaxa = getSelectedTaxa();
   var selectedCommonNames = getSelectedCommonNames();
-  var filteredDocs = filterDocsByCreators(ALL_PASTA_DOCS, selectedCreators || []);
+  var searchText = getSearchText();
+  var filteredDocs = filterDocsBySearchText(ALL_PASTA_DOCS, searchText);
+  filteredDocs = filterDocsByCreators(filteredDocs, selectedCreators || []);
   filteredDocs = filterDocsByKeywords(filteredDocs, selectedKeywords || []);
   filteredDocs = filterDocsByProjects(filteredDocs, selectedProjects || []);
   filteredDocs = filterDocsByLocations(filteredDocs, selectedLocations || []);
@@ -1055,6 +1096,13 @@ document.addEventListener("DOMContentLoaded", function () {
   bindFacetEvents();
   bindFilterEvents();
   setBrandingText();
+  // Bind free-text search bar
+  var mainSearchInput = document.getElementById('main-search-input');
+  if (mainSearchInput) {
+    mainSearchInput.addEventListener('input', function () {
+      processFacetChange();
+    });
+  }
   focusTopOfPage(); // Ensure top-of-page focus after load
   loadRelatedStories(function () {
     initData();

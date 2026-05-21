@@ -694,7 +694,6 @@ body.no-banner .banner-bar {
   display: none !important;
 }
 
-/* --- Help Text --- */
 .help-text {
   font-size: 14px;
   color: #333;
@@ -704,6 +703,51 @@ body.no-banner .banner-bar {
   margin-bottom: 15px;
   border-radius: 4px;
 }
+
+/* --- Main sidebar search bar --- */
+#search-bar-block {
+  width: 100%;
+  max-width: 256px;
+  margin: 0 auto 16px auto;
+  box-sizing: border-box;
+}
+
+#search-bar-block .search-bar-inner {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #c2c7d0;
+  border-radius: var(--border-radius);
+  padding: 5px 10px;
+  background: #fff;
+  transition: border-color var(--transition-speed);
+}
+
+#search-bar-block .search-bar-inner:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(42, 122, 226, 0.15);
+}
+
+#search-bar-block .search-bar-inner i {
+  color: #888;
+  font-size: 0.95em;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+#main-search-input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  font-family: var(--font-family);
+  background: transparent;
+  color: #333;
+}
+
+#main-search-input::placeholder {
+  color: #aaa;
+}
+
 
 /* --- Visually Hidden Class --- */
 .visually-hidden,
