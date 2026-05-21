@@ -41,7 +41,7 @@ const PASTA_CONFIG = {
   "logoAltText": "MCM Logo, a white outline of Antarctica with the text MCM LTER est. 1993 overlaid.", //
   "showAbstracts": true, // true if we should show abstracts in search results
   "abstractLimit": 750, // Limit the number of characters in the abstract
-  "showUserStoriesLink": fale, // If false, do not display the user stories link for datasets
+  "showUserStoriesLink": false, // If false, do not display the user stories link for datasets
   "showThumbnails": false, // If false, do not display dataset thumbnail images
   "showBanner": false, // If false, the top banner will not be displayed
   "hideMapView": false, // true to hide the map view
